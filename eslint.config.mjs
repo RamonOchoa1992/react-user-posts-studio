@@ -2,17 +2,37 @@ import { defineConfig, globalIgnores } from "eslint/config";
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
 
+const FEATURE_INTERNALS = {
+  group: ["@/features/*/*"],
+  message: 'Consume features through their public API: import from "@/features/<feature>".',
+};
+
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
-  // Override default ignores of eslint-config-next.
-  globalIgnores([
-    // Default ignores of eslint-config-next:
-    ".next/**",
-    "out/**",
-    "build/**",
-    "next-env.d.ts",
-  ]),
+  {
+    files: ["src/**/*.{ts,tsx}"],
+    rules: {
+      // Feature boundaries: a feature's internals are private to that feature.
+      "no-restricted-imports": ["error", { patterns: [FEATURE_INTERNALS] }],
+    },
+  },
+  {
+    files: ["src/components/**", "src/hooks/**", "src/lib/**", "src/services/**"],
+    rules: {
+      // Shared layers sit below features and must never depend on them.
+      "no-restricted-imports": [
+        "error",
+        {
+          patterns: [
+            FEATURE_INTERNALS,
+            { group: ["@/features", "@/features/*"], message: "Shared code must not depend on features." },
+          ],
+        },
+      ],
+    },
+  },
+  globalIgnores([".next/**", "out/**", "build/**", "coverage/**", "next-env.d.ts"]),
 ]);
 
 export default eslintConfig;
