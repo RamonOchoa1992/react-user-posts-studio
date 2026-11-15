@@ -1,10 +1,5 @@
-import { AppHeader } from "@/components/layout/app-header";
+import { UserPostsStudio } from "@/features/studio";
 
 export default function HomePage() {
-  return (
-    <div className="flex h-dvh flex-col">
-      <AppHeader />
-      <main className="flex-1" />
-    </div>
-  );
+  return <UserPostsStudio />;
 }
