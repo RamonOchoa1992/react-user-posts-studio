@@ -2,6 +2,8 @@
 
 [![CI](https://github.com/RamonOchoa1992/react-user-posts-studio/actions/workflows/ci.yml/badge.svg)](https://github.com/RamonOchoa1992/react-user-posts-studio/actions/workflows/ci.yml)
 
+**Demo en vivo → [react-user-posts-studio.vercel.app](https://react-user-posts-studio.vercel.app)**
+
 Explorador de usuarios y publicaciones con experiencia **master-detail** de nivel SaaS, construido sobre
 la API pública de [JSONPlaceholder](https://jsonplaceholder.typicode.com). Prueba técnica frontend con
 **Next.js 16 (App Router)**, **TypeScript estricto**, **Tailwind CSS 4**, **shadcn/ui** y una suite de
