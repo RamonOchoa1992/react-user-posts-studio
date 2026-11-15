@@ -39,3 +39,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+# Visual baselines depend on OS font rendering: generated locally, never committed.
+/e2e/**/*-snapshots/
