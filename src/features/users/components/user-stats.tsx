@@ -70,12 +70,16 @@ interface StatCardProps {
 function StatCard({ icon: Icon, label, value, hint }: StatCardProps) {
   return (
     <div className="group flex min-w-0 flex-col gap-3 rounded-xl border border-border/60 bg-card p-4 shadow-xs transition-shadow duration-200 hover:shadow-md">
-      <div className="flex items-center gap-2">
-        <span className="flex size-7 items-center justify-center rounded-lg bg-muted text-muted-foreground transition-colors group-hover:bg-brand/10 group-hover:text-brand">
-          <Icon className="size-3.5" aria-hidden />
+      {/* dt/dd must be direct children of the group for assistive tech to pair label and value. */}
+      <dt className="flex items-center gap-2 text-xs font-medium tracking-wide text-muted-foreground uppercase">
+        <span
+          aria-hidden
+          className="flex size-7 items-center justify-center rounded-lg bg-muted text-muted-foreground transition-colors group-hover:bg-brand/10 group-hover:text-brand"
+        >
+          <Icon className="size-3.5" />
         </span>
-        <dt className="text-xs font-medium tracking-wide text-muted-foreground uppercase">{label}</dt>
-      </div>
+        {label}
+      </dt>
       <dd className="min-w-0">
         <div className="flex min-h-7 items-center truncate text-[15px] font-semibold tracking-tight">{value}</div>
         <p className="mt-0.5 truncate text-xs text-muted-foreground first-letter:uppercase" title={hint}>
