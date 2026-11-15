@@ -239,9 +239,9 @@ accesibilidad en escritorio y móvil, con el reporte HTML como artefacto.
 
 ## Uso de IA
 
-Este proyecto se construyó con un asistente de IA (Claude Code) trabajando en el repositorio bajo la
-dirección del autor, que fijó los requisitos, revisó cada iteración y tomó las decisiones de
-producto y arquitectura.
+Este proyecto se construyó con un asistente de IA (Claude Code), que escribió el código trabajando
+en el repositorio bajo la dirección del autor. El autor dirigió el proceso, fijó los requisitos y las
+decisiones clave, y validó los resultados en cada iteración.
 
 **Qué se le pidió a la IA**
 
